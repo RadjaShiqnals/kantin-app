@@ -49,6 +49,14 @@ class Diskon extends Model
     {
         return $this->belongsToMany(Menu::class, 'menu_diskon', 'id_diskon', 'id_menu');
     }
+    
+    /**
+     * Get the menu_diskon pivot records associated with this discount.
+     */
+    public function menuDiskon()
+    {
+        return $this->hasMany(MenuDiskon::class, 'id_diskon');
+    }
 
     /**
      * Check if discount is active.
